@@ -1,15 +1,28 @@
-import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
-import ImageStream from '../ui/ImageStream';
+import { motion } from "framer-motion";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import heroImages from "../../assets/hero-images/heroImages.json";
+import ImageStream from "../ui/ImageStream";
 
 const Hero = () => {
-  const streamImages = [
-    { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800', alt: 'Mountain' },
-    { src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800', alt: 'Nature' },
-    { src: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800', alt: 'Forest' },
-    { src: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800', alt: 'Waterfall' },
-    { src: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800', alt: 'Lake' },
-  ];
+  const imageModules = import.meta.glob(
+    "../../assets/hero-images/*.{jpg,jpeg,png,webp,avif}",
+    {
+      eager: true,
+      query: "?url",
+      import: "default",
+    },
+  );
+
+  const streamImages = heroImages
+    .map((image) => {
+      const imagePath = `../../assets/hero-images/${image.file}`;
+
+      return {
+        src: imageModules[imagePath],
+        alt: image.alt,
+      };
+    })
+    .filter((image) => image.src);
 
   // Small twinkling stars
   const stars = Array.from({ length: 500 }).map((_, i) => ({
@@ -34,7 +47,7 @@ const Hero = () => {
 
   // Colored stars — lime tints matching theme
   const coloredStars = Array.from({ length: 35 }).map((_, i) => {
-    const colors = ['#a3e741', '#bef264', '#d9f99d', '#84cc16'];
+    const colors = ["#a3e741", "#bef264", "#d9f99d", "#84cc16"];
     return {
       id: `color-${i}`,
       top: Math.random() * 100,
@@ -50,13 +63,12 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen w-full overflow-hidden">
       {/* ── FIXED GALAXY BACKGROUND ── */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-
         {/* 1. Deep space base — dark with lime tint */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse at 30% 40%, #0a1505 0%, #050a02 50%, #000000 100%)',
+              "radial-gradient(ellipse at 30% 40%, #0a1505 0%, #050a02 50%, #000000 100%)",
           }}
         />
 
@@ -70,8 +82,8 @@ const Hero = () => {
               radial-gradient(ellipse 110% 40% at 70% 60%, rgba(132, 204, 22, 0.40) 0%, transparent 60%),
               radial-gradient(ellipse 90% 25% at 90% 75%, rgba(101, 163, 13, 0.35) 0%, transparent 60%)
             `,
-            transform: 'rotate(-25deg) scale(1.4)',
-            filter: 'blur(30px)',
+            transform: "rotate(-25deg) scale(1.4)",
+            filter: "blur(30px)",
           }}
         />
 
@@ -84,8 +96,8 @@ const Hero = () => {
               radial-gradient(ellipse 50% 18% at 55% 48%, rgba(254, 249, 195, 0.30) 0%, transparent 60%),
               radial-gradient(ellipse 40% 15% at 70% 55%, rgba(190, 242, 100, 0.30) 0%, transparent 60%)
             `,
-            transform: 'rotate(-25deg) scale(1.4)',
-            filter: 'blur(25px)',
+            transform: "rotate(-25deg) scale(1.4)",
+            filter: "blur(25px)",
           }}
         />
 
@@ -110,8 +122,8 @@ const Hero = () => {
               radial-gradient(ellipse 300px 200px at 50% 42%, rgba(0, 0, 0, 0.7) 0%, transparent 70%),
               radial-gradient(ellipse 250px 180px at 35% 38%, rgba(0, 0, 0, 0.6) 0%, transparent 70%)
             `,
-            transform: 'rotate(-25deg)',
-            filter: 'blur(40px)',
+            transform: "rotate(-25deg)",
+            filter: "blur(40px)",
           }}
         />
 
@@ -120,8 +132,8 @@ const Hero = () => {
           className="absolute top-[40%] left-[45%] w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70"
           style={{
             background:
-              'radial-gradient(circle, rgba(217, 249, 157, 0.4) 0%, rgba(163, 231, 65, 0.25) 30%, transparent 70%)',
-            filter: 'blur(60px)',
+              "radial-gradient(circle, rgba(217, 249, 157, 0.4) 0%, rgba(163, 231, 65, 0.25) 30%, transparent 70%)",
+            filter: "blur(60px)",
           }}
         />
 
@@ -139,7 +151,7 @@ const Hero = () => {
                 animationDelay: `${star.delay}s`,
                 animationDuration: `${star.duration}s`,
                 opacity: star.opacity,
-                boxShadow: '0 0 3px rgba(255,255,255,0.7)',
+                boxShadow: "0 0 3px rgba(255,255,255,0.7)",
               }}
             />
           ))}
@@ -159,7 +171,7 @@ const Hero = () => {
                 animationDelay: `${star.delay}s`,
                 animationDuration: `${star.duration}s`,
                 boxShadow:
-                  '0 0 6px 2px rgba(255,255,255,0.9), 0 0 14px 4px rgba(163,231,65,0.5)',
+                  "0 0 6px 2px rgba(255,255,255,0.9), 0 0 14px 4px rgba(163,231,65,0.5)",
               }}
             />
           ))}
@@ -200,7 +212,7 @@ const Hero = () => {
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%)',
+              "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%)",
           }}
         />
 
@@ -231,7 +243,8 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight drop-shadow-2xl"
           >
-            Your work,<br />
+            Your work,
+            <br />
             <span className="text-accent">front and centre.</span>
           </motion.h1>
 
@@ -239,7 +252,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-gray-100 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             A hero that leads with the images instead of describing them.
             Creating visual experiences that captivate and inspire.
@@ -270,7 +283,7 @@ const Hero = () => {
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             className="text-gray-400"
           >
             <ChevronDown className="w-8 h-8" />

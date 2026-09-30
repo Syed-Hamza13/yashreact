@@ -457,13 +457,13 @@ const WhoIAm = () => {
               </div>
               <div className="border-l border-gray-300/60 pl-5">
                 <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-0.5">
-                  <CountUp end={10} />
+                  <CountUp end={20} />
                 </div>
                 <div className="text-gray-600 text-xs font-medium">Clients</div>
               </div>
               <div className="border-l border-gray-300/60 pl-5">
                 <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-0.5">
-                  <CountUp end={2} />
+                  <CountUp end={1} />
                 </div>
                 <div className="text-gray-600 text-xs font-medium">Years Exp.</div>
               </div>
@@ -593,26 +593,7 @@ const ToolsExpertise = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            className="p-8 bg-gray-50 rounded-2xl border border-gray-200 hover:border-[var(--lime-primary)] transition-colors duration-300"
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              {/* FaVideo — direct hover */}
-              <FaVideo className="w-7 h-7 text-black hover:text-[var(--lime-primary)] transition-colors duration-300 cursor-pointer" />
-              Tools I Use — Video
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {videoTools.map((tool) => (
-                <span key={tool} className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-gray-200 text-gray-900 font-semibold text-sm hover:border-[var(--lime-primary)] hover:bg-[var(--lime-light)]/40 transition-all duration-300">
-                  {getToolImage(tool) && <img src={getToolImage(tool)} alt={tool} className="w-4 h-4 object-contain" />}
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+          
         </div>
 
         <div className="mb-6">
