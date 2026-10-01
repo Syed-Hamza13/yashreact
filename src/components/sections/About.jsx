@@ -23,20 +23,6 @@ import {
   experienceData,
 } from '../../data/portfolioData';
 
-// ── PROJECT CLIENTS DATA ──
-const projectClients = [
-  { name: 'All Saint Institute of College', location: 'Bhopal', work: 'Poster Design', tags: ['Poster', 'Print'], icon: 'poster' },
-  { name: 'Annapurna Group of Hotels', location: 'Bhopal', work: 'Posters & AI Video', tags: ['Poster', 'AI Video'], icon: 'video' },
-  { name: 'Shri Shyam Home Décor', location: 'India', work: 'Ads, AI Videos & Poster Campaigns', tags: ['Ads', 'AI Video', 'Poster'], icon: 'ads' },
-  { name: 'Amrit Yoji', location: 'India', work: 'Poster & Video Production', tags: ['Poster', 'Video'], icon: 'video' },
-  { name: 'Rivani Jewels', location: 'India', work: 'AI Video & Poster Design', tags: ['AI Video', 'Poster'], icon: 'ads' },
-  { name: 'Landmark Builders', location: 'India', work: 'Real Estate Campaign (Posters + Videos)', tags: ['Campaign', 'Poster', 'Video'], icon: 'poster' },
-  { name: 'Sun Solutions', location: 'India', work: 'Ads Poster Series', tags: ['Ads', 'Poster'], icon: 'ads' },
-  { name: 'AARTH Real Estate', location: 'India', work: 'Full Ads Poster Campaign', tags: ['Ads', 'Campaign'], icon: 'poster' },
-];
-
-
-
 
 
 const CountUp = ({ end, duration = 1800, suffix = '+', decimals = 0 }) => {
@@ -70,163 +56,7 @@ const CountUp = ({ end, duration = 1800, suffix = '+', decimals = 0 }) => {
   );
 };
 
-
-
-
-
-
-
 // ── COMPACT CLIENT CARD ──
-const CompactClientCard = ({ client, index }) => {
-  const initials = client.name
-    .split(' ')
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase();
-
-  const palette = [
-    { base: '#a3e635', soft: '#ecfccb', text: '#3f6212' },
-    { base: '#60a5fa', soft: '#dbeafe', text: '#1e3a8a' },
-    { base: '#f472b6', soft: '#fce7f3', text: '#9d174d' },
-    { base: '#fb923c', soft: '#ffedd5', text: '#9a3412' },
-    { base: '#a78bfa', soft: '#ede9fe', text: '#5b21b6' },
-    { base: '#34d399', soft: '#d1fae5', text: '#065f46' },
-    { base: '#fbbf24', soft: '#fef3c7', text: '#92400e' },
-    { base: '#22d3ee', soft: '#cffafe', text: '#155e75' },
-  ];
-
-  const c = palette[(index - 1) % palette.length];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ delay: index * 0.04, duration: 0.4 }}
-      className="group relative flex flex-col p-4 bg-white rounded-2xl border-2 border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer"
-    >
-      {/* Top bar */}
-      <div
-        className="absolute top-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500 rounded-t-2xl"
-        style={{ backgroundColor: c.base }}
-      />
-
-      {/* Corner arrow */}
-      <div className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 group-hover:rotate-12"
-        style={{ backgroundColor: '#f3f4f6', color: '#000' }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = c.base;
-          e.currentTarget.style.color = '#fff';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = '#f3f4f6';
-          e.currentTarget.style.color = '#000';
-        }}
-      >
-        <FaArrowUpRightFromSquare className="w-2.5 h-2.5" />
-      </div>
-
-      {/* Avatar */}
-      <div
-        className="relative w-12 h-12 rounded-xl flex items-center justify-center font-bold text-base mb-3 transition-all duration-300 group-hover:scale-105"
-        style={{ backgroundColor: c.soft, color: c.text }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = c.base;
-          e.currentTarget.style.color = '#fff';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = c.soft;
-          e.currentTarget.style.color = c.text;
-        }}
-      >
-        {initials}
-        <div
-          className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white border-2 flex items-center justify-center text-black transition-all duration-300"
-          style={{ borderColor: '#f3f4f6' }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = c.base;
-            e.currentTarget.style.color = c.base;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#f3f4f6';
-            e.currentTarget.style.color = '#000';
-          }}
-        >
-          <WorkIcon type={client.icon} className="w-2.5 h-2.5" />
-        </div>
-      </div>
-
-      {/* Project label */}
-      <span
-        className="text-[9px] font-bold uppercase tracking-widest transition-colors duration-300 mb-1"
-        style={{ color: '#000' }}
-        onMouseEnter={(e) => (e.currentTarget.style.color = c.base)}
-        onMouseLeave={(e) => (e.currentTarget.style.color = '#000')}
-      >
-        Project {String(index).padStart(2, '0')}
-      </span>
-
-      {/* Name */}
-      <h4
-        className="text-sm font-bold leading-snug mb-1.5 transition-colors duration-300 line-clamp-2 min-h-[2.5rem]"
-        style={{ color: '#111827' }}
-        onMouseEnter={(e) => (e.currentTarget.style.color = c.base)}
-        onMouseLeave={(e) => (e.currentTarget.style.color = '#111827')}
-      >
-        {client.name}
-      </h4>
-
-      {/* Location */}
-      <div className="flex items-center gap-1 text-[11px] text-gray-500 mb-2">
-        <FaLocationDot
-          className="w-2.5 h-2.5 transition-colors duration-300"
-          style={{ color: '#000' }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = c.base)}
-          onMouseLeave={(e) => (e.currentTarget.style.color = '#000')}
-        />
-        <span className="truncate">{client.location}</span>
-      </div>
-
-      {/* Work description */}
-      <p className="text-xs text-gray-600 leading-snug mb-3 line-clamp-2 flex-grow">
-        {client.work}
-      </p>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1 pt-2.5 border-t border-gray-100">
-        {client.tags.slice(0, 2).map((tag) => (
-          <span
-            key={tag}
-            className="px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide rounded border transition-all duration-300"
-            style={{
-              backgroundColor: '#f9fafb',
-              color: '#4b5563',
-              borderColor: '#e5e7eb',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = c.soft;
-              e.currentTarget.style.color = c.base;
-              e.currentTarget.style.borderColor = c.base;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#f9fafb';
-              e.currentTarget.style.color = '#4b5563';
-              e.currentTarget.style.borderColor = '#e5e7eb';
-            }}
-          >
-            {tag}
-          </span>
-        ))}
-        {client.tags.length > 2 && (
-          <span className="px-1.5 py-0.5 text-[9px] font-semibold text-gray-500">
-            +{client.tags.length - 2}
-          </span>
-        )}
-      </div>
-    </motion.div>
-  );
-};
 
 
 
@@ -306,114 +136,6 @@ const MarqueeRow = ({ tools, reverse = false, speed = 30 }) => {
   );
 };
 
-// ── CLIENT CARD (card-level group — unchanged) ──
-const ClientCard = ({ client, index }) => {
-  const initials = client.name.split(' ').slice(0, 2).map((w) => w[0]).join('').toUpperCase();
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ delay: index * 0.06, duration: 0.5 }}
-      className="group relative flex flex-col justify-between p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-[var(--lime-primary)] hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer"
-    >
-      <div className="absolute top-0 left-0 h-1 w-0 bg-[var(--lime-primary)] group-hover:w-full transition-all duration-500 rounded-t-2xl" />
-
-      <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-black group-hover:bg-[var(--lime-primary)] group-hover:text-white group-hover:rotate-12 transition-all duration-300">
-        <FaArrowUpRightFromSquare className="w-3.5 h-3.5" />
-      </div>
-
-      <div className="flex items-center gap-3 mb-5">
-        <div className="relative w-14 h-14 rounded-xl bg-[var(--lime-light)] flex items-center justify-center font-bold text-black text-lg group-hover:scale-110 group-hover:bg-[var(--lime-primary)] group-hover:text-white transition-all duration-300">
-          {initials}
-          <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-gray-100 flex items-center justify-center text-black group-hover:text-[var(--lime-primary)] group-hover:border-[var(--lime-primary)] transition-all duration-300">
-            <WorkIcon type={client.icon} className="w-3 h-3" />
-          </div>
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <span className="block text-[10px] font-bold uppercase tracking-widest text-black group-hover:text-[var(--lime-primary)] transition-colors duration-300">
-            Project {String(index + 1).padStart(2, '0')}
-          </span>
-          <span className="block text-xs text-gray-400 truncate">Case Study</span>
-        </div>
-      </div>
-
-      <div className="mb-4">
-        <h4 className="text-base font-bold text-gray-900 leading-snug mb-1.5 group-hover:text-[var(--lime-primary)] transition-colors duration-300">
-          {client.name}
-        </h4>
-        <div className="flex items-center gap-1.5 text-xs text-gray-500">
-          <FaLocationDot className="w-3 h-3 text-black group-hover:text-[var(--lime-primary)] transition-colors duration-300" />
-          <span>{client.location}</span>
-        </div>
-      </div>
-
-      <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">{client.work}</p>
-
-      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-gray-100">
-        {client.tags.map((tag) => (
-          <span key={tag} className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide rounded-md bg-gray-50 text-gray-600 border border-gray-200 group-hover:bg-[var(--lime-light)]/50 group-hover:border-[var(--lime-primary)]/40 group-hover:text-[var(--lime-primary)] transition-all duration-300">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </motion.div>
-  );
-};
-
-// ── FEATURED CLIENT CARD (card-level group) ──
-const FeaturedClientCard = ({ client }) => {
-  const initials = client.name.split(' ').slice(0, 2).map((w) => w[0]).join('').toUpperCase();
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ duration: 0.6 }}
-      className="group relative flex flex-col justify-between p-8 rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-white to-[var(--lime-light)]/30 hover:border-[var(--lime-primary)] hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer h-full"
-    >
-      <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-[var(--lime-primary)]/10 group-hover:bg-[var(--lime-primary)]/20 transition-colors duration-500" />
-      <div className="absolute -bottom-12 -left-12 w-32 h-32 rounded-full bg-[var(--lime-light)]/40 group-hover:bg-[var(--lime-light)]/60 transition-colors duration-500" />
-
-      <div className="relative flex items-center justify-between mb-6">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--lime-primary)] text-white text-[10px] font-bold uppercase tracking-widest shadow-sm">
-          <FaStar className="w-3 h-3" />
-          Featured
-        </span>
-        <div className="w-11 h-11 rounded-full bg-white border-2 border-gray-100 flex items-center justify-center text-black group-hover:bg-[var(--lime-primary)] group-hover:text-white group-hover:border-[var(--lime-primary)] group-hover:rotate-45 transition-all duration-300">
-          <FaArrowUpRightFromSquare className="w-4 h-4" />
-        </div>
-      </div>
-
-      <div className="relative w-20 h-20 rounded-2xl bg-white border-2 border-[var(--lime-primary)]/30 flex items-center justify-center font-bold text-black text-2xl mb-5 group-hover:scale-105 group-hover:border-[var(--lime-primary)] transition-all duration-300 shadow-sm">
-        {initials}
-        <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-[var(--lime-primary)] flex items-center justify-center text-white shadow-md">
-          <WorkIcon type={client.icon} className="w-3.5 h-3.5" />
-        </div>
-      </div>
-
-      <div className="relative">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-[var(--lime-primary)] transition-colors duration-300">
-          {client.name}
-        </h3>
-        <div className="flex items-center gap-1.5 text-sm text-gray-500 mb-4">
-          <FaLocationDot className="w-3.5 h-3.5 text-black group-hover:text-[var(--lime-primary)] transition-colors duration-300" />
-          <span>{client.location}</span>
-        </div>
-        <p className="text-base text-gray-600 leading-relaxed mb-6">{client.work}</p>
-
-        <div className="flex flex-wrap gap-2">
-          {client.tags.map((tag) => (
-            <span key={tag} className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wide rounded-lg bg-white border border-gray-200 text-gray-700 group-hover:border-[var(--lime-primary)]/50 group-hover:bg-[var(--lime-primary)]/10 group-hover:text-[var(--lime-primary)] transition-all duration-300">
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
 
 // ── SECTION 1: WHO I AM ──
 const WhoIAm = () => {
@@ -502,63 +224,6 @@ const WhoIAm = () => {
     </section>
   );
 };
-// ── SECTION 2: PROJECTS & CLIENTS ──
-// ── SECTION 2: PROJECTS & CLIENTS ──
-const ProjectsClients = () => {
-  const ref = useRef(null);
-
-  return (
-    <section
-      ref={ref}
-      className="relative py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] overflow-hidden"
-    >
-      {/* Soft orange glow — top left */}
-     <div class="pointer-events-none absolute -top-24 -left-24 w-80 h-80 rounded-full bg-[#fef9c3]/40 blur-3xl"></div>
-      <div className="relative max-w-7xl mx-auto">
-        <SectionBadge number="02" label="Portfolio" light />
-
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-          <div className="max-w-xl">
-            <div className="flex items-center gap-3 mb-2">
-              <FaLayerGroup className="w-5 h-5 text-black hover:text-[var(--lime-primary)] transition-colors duration-300 cursor-pointer" />
-              <span className="text-xs font-bold uppercase tracking-widest text-black hover:text-[var(--lime-primary)] transition-colors duration-300 cursor-pointer">
-                Work
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-              Projects & Clients
-            </h2>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              A glimpse into my creativity — designs, collaborations, and digital
-              experiences for diverse brands.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2 shrink-0">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-full border border-gray-200">
-                    <span className="w-2 h-2 rounded-full bg-[var(--lime-primary)] animate-pulse"></span>
-                    <span className="text-xs font-bold text-gray-900">
-                    <CountUp end={8} /> Clients
-                    </span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-full border border-gray-200">
-                    <span className="w-2 h-2 rounded-full bg-[var(--lime-primary)] animate-pulse"></span>
-                    <span className="text-xs font-bold text-gray-900">
-                    <CountUp end={100} /> Designs
-                    </span>
-                </div>
-                </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {projectClients.map((client, i) => (
-            <CompactClientCard key={client.name} client={client} index={i + 1} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ── SECTION 3: TOOLS & EXPERTISE ──
 const ToolsExpertise = () => {
@@ -616,9 +281,6 @@ const ToolsExpertise = () => {
 };
 
 // ── SECTION 4: CURRENTLY WORKING AT ──
-
-
-
 
 const CurrentlyWorking = () => {
   const ref = useRef(null);
@@ -740,8 +402,6 @@ const CurrentlyWorking = () => {
               At Workspace
             </div>
           </motion.div>
-
-          {/* Rating */}
           {/* Rating */}
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -832,7 +492,6 @@ const About = () => {
   return (
       <div id="about" className="relative z-10 bg-[#f8fafc]">
       <WhoIAm />
-      <ProjectsClients />
       <ToolsExpertise />
       <CurrentlyWorking />
     </div>
