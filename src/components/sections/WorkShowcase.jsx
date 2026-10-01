@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import {
   FaArrowUpRightFromSquare,
-  FaLayerGroup,
   FaChevronLeft,
   FaChevronRight,
 } from 'react-icons/fa6';
@@ -149,12 +148,12 @@ const WorkShowcase = () => {
         {/* Header + slider controls */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-2">
+            {/* <div className="flex items-center gap-3 mb-2">
               <FaLayerGroup className="w-5 h-5 text-black hover:text-[var(--lime-primary)] transition-colors duration-300 cursor-pointer" />
               <span className="text-xs font-bold uppercase tracking-widest text-black">
                 Selected Work
               </span>
-            </div>
+            </div> */}
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
               A Gallery of Ideas
             </h2>

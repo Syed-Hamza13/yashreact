@@ -234,7 +234,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-gray-400 text-sm sm:text-base mb-6 font-medium tracking-wide uppercase"
           >
-            Graphic Designer & UI/UX Designer
+            Graphic & UI/UX Designer
           </motion.p>
 
           <motion.h1

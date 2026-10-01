@@ -7,7 +7,6 @@ import DesignShowCase from './components/sections/DesignShowcase'
 import Journey from './components/sections/JourneyContact'
 function App() {
   return (
-    // bg-background class lagana zaroori hai taaki dark theme apply ho
     <div className="bg-background min-h-screen text-text-primary font-sans selection:bg-accent selection:text-background">
       <Navbar />
       <Hero />
@@ -16,13 +15,6 @@ function App() {
       <WorkShowcase />
       <DesignShowCase />
       <Journey />
-      {/* Baaki sections baad me yahan add honge:
-          <About />
-          <Experience />
-          <Portfolio />
-          <Videos />
-          <Contact />
-      */}
     </div>
   )
 }

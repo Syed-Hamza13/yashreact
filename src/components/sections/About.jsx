@@ -5,7 +5,6 @@ import {
   FaBriefcase,
   FaArrowRight,
   FaStar,
-  FaUser,
   FaTools,
   FaBuilding,
 } from 'react-icons/fa';
@@ -49,27 +48,28 @@ const CountUp = ({ end, duration = 1800, suffix = '+', decimals = 0 }) => {
   );
 };
 
-// ── COMPACT CLIENT CARD ──
+const ICONIFY_CDN = 'https://api.iconify.design';
 
-
-
-
-
-// ── TOOL → IMAGE ──
-const toolImages = {
-  Figma: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-  'Adobe Photoshop': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg',
-  'Adobe Illustrator': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg',
-  'Canva Pro': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg',
-  'Adobe Premiere Pro': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg',
-  'Adobe After Effects': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg',
-  CapCut: 'https://cdn.simpleicons.org/capcut/000000',
-  React: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-  'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
-  JavaScript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-  HTML5: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-  CSS3: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+const toolIcons = {
+  Figma: 'logos:figma',
+  'Adobe Photoshop': 'logos:adobe-photoshop',
+  'Adobe Illustrator': 'logos:adobe-illustrator',
+  'Canva Pro': 'thesvg-color:canva',
+  'Adobe Premiere Pro': 'selfhst:adobe-premiere-pro',
+  'Adobe After Effects': 'logos:adobe-after-effects',
+  CapCut: 'selfhst:capcut',
+  'Tailwind CSS': 'logos:tailwindcss',
+  JavaScript: 'logos:javascript',
+  HTML5: 'logos:html-5',
+  CSS3: 'logos:css-3',
 };
+
+const toolImages = Object.fromEntries(
+  Object.entries(toolIcons).map(([tool, icon]) => [
+    tool,
+    `${ICONIFY_CDN}/${icon.replace(':', '/')}.svg`,
+  ])
+);
 
 const getToolImage = (tool) => toolImages[tool];
 
@@ -140,13 +140,7 @@ const WhoIAm = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* LEFT */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <FaUser className="w-5 h-5 text-black hover:text-[var(--lime-primary)] transition-colors duration-300 cursor-pointer" />
-              <span className="text-xs font-bold uppercase tracking-widest text-black hover:text-[var(--lime-primary)] transition-colors duration-300 cursor-pointer">
-                Who I Am
-              </span>
-            </div>
-
+           
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
   {aboutData.intro}
 </h2>
@@ -220,7 +214,7 @@ const ToolsExpertise = () => {
   return (
     <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] inset-4 z-3">
       <div className="max-w-7xl mx-auto">
-        <SectionBadge number="03" label="Expertise" />
+        <SectionBadge number="02" label="Expertise" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -276,7 +270,7 @@ const CurrentlyWorking = () => {
   return (
     <section ref={ref} className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <SectionBadge number="04" label="Experience" light />
+        <SectionBadge number="03" label="Experience" light />
 
         {/* ── TOP STRIP: logo + company + active badge ── */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-4 border-b border-gray-200">

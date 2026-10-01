@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, User, Briefcase, Folder, Video, Mail, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Folder,  Mail, ArrowUpRight, Sparkles } from 'lucide-react';
 
 const EnhancedNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ const EnhancedNavbar = () => {
       const progress = (currentScrollY / totalHeight) * 100;
       setScrollProgress(progress);
 
-      const sections = ['home', 'about', 'resume', 'portfolio', 'videos', 'contact'];
+      const sections = ['home', 'about', 'resume', 'portfolio', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -50,7 +50,6 @@ const EnhancedNavbar = () => {
     { name: 'About', href: '#about', id: 'about', icon: User },
     { name: 'Resume', href: '#resume', id: 'resume', icon: Briefcase },
     { name: 'Portfolio', href: '#portfolio', id: 'portfolio', icon: Folder },
-    { name: 'Videos', href: '#videos', id: 'videos', icon: Video },
     { name: 'Contact', href: '#contact', id: 'contact', icon: Mail },
   ];
 

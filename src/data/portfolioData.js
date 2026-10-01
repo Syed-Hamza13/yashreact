@@ -500,6 +500,6 @@ export const aboutData = {
   name: 'Yash Chourey',
   role: 'Graphic Designer & UI/UX Designer',
   location: 'Bhopal, India',
-  intro: 'I\'m Yash Chourey — a UI/UX Designer & Graphic Designer based in Bhopal, India.',
+  intro: 'I\'m Yash Chourey — A UI/UX Designer & Graphic Designer based in Bhopal, India.',
   description: 'I design clean, user-focused digital experiences that combine creativity with functionality. From intuitive mobile and web interfaces to impactful brand identities and marketing visuals, I create designs that are visually engaging, easy to use, and built to solve real problems. I\'m passionate about turning ideas into meaningful experiences that help businesses connect with their audience and leave a lasting impression.',
 };
