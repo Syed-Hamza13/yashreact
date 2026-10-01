@@ -307,16 +307,7 @@ export const experienceData = [
     logo: 'https://techoverworld.liveblog365.com/yash-portfolio/images/experience/a media house past work.jpg',
     description: 'Assisted in creating daily social media graphics, poster campaigns, and basic video editing for local businesses.',
   },
-  {
-    id: 3,
-    role: 'UI/UX Designer',
-    company: 'Freelance',
-    location: 'Remote',
-    period: '2023 – Present',
-    isCurrent: true,
-    logo: null,
-    description: 'Designing intuitive interfaces and user experiences for web and mobile applications, focusing on usability and modern design systems.',
-  },
+  
 ];
 
 // ============================================
