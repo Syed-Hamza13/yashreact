@@ -2,15 +2,13 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import {
   FaMobileAlt,
-  FaVideo,
-  FaPlay,
   FaTimes,
   FaChartLine,
   FaBriefcase,
   FaFolderOpen,
   FaUsers,
 } from 'react-icons/fa';
-import { portfolioData, videosData, statsData } from '../../data/portfolioData';
+import { portfolioData, } from '../../data/portfolioData';
 
 // ── Reusable CountUp ──
 const CountUp = ({ end, duration = 1800, suffix = '+', decimals = 0 }) => {
