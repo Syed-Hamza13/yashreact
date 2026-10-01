@@ -2,21 +2,14 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import {
   FaPalette,
-  FaVideo,
   FaBriefcase,
   FaArrowRight,
   FaStar,
   FaUser,
-  FaLayerGroup,
   FaTools,
   FaBuilding,
 } from 'react-icons/fa';
-import {
-  FaLocationDot,
-  FaArrowUpRightFromSquare,
-  FaPaintbrush,
-  FaCamera,
-} from 'react-icons/fa6';
+
 import {
   aboutData,
   skillsData,
@@ -80,15 +73,7 @@ const toolImages = {
 
 const getToolImage = (tool) => toolImages[tool];
 
-// ── WORK ICON ──
-const WorkIcon = ({ type, className }) => {
-  switch (type) {
-    case 'video': return <FaVideo className={className} />;
-    case 'ads': return <FaPaintbrush className={className} />;
-    case 'poster': return <FaCamera className={className} />;
-    default: return <FaPalette className={className} />;
-  }
-};
+
 
 // ── SectionBadge ──
 const SectionBadge = ({ number, label, light = false }) => (
