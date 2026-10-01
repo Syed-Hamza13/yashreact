@@ -1,0 +1,130 @@
+{
+  "sections": [
+    {
+      "id": "design",
+      "title": "Design",
+      "description": "A collection of selected graphic design work and visual explorations.",
+      "folder": "design",
+      "items": [
+        {
+          "id": "design-01",
+          "title": "Design 01",
+          "tag": "Graphic Design",
+          "image": "721780709_122132582013138632_6380711295673822659_n.avif"
+        },
+        {
+          "id": "design-02",
+          "title": "Design 02",
+          "tag": "Graphic Design",
+          "image": "743252811_122135949723138632_7717209671871084530_n.avif"
+        },
+        {
+          "id": "design-03",
+          "title": "Design 03",
+          "tag": "Graphic Design",
+          "image": "760160828_1571502604678677_6539450405488400245_n.avif"
+        },
+        {
+          "id": "design-04",
+          "title": "Design 04",
+          "tag": "Graphic Design",
+          "image": "778985511_1593941035768167_2717075843441105806_n.avif"
+        },
+        {
+          "id": "design-05",
+          "title": "Design 05",
+          "tag": "Graphic Design",
+          "image": "780520956_122139673407138632_2845715456464545886_n.avif"
+        }
+      ]
+    },
+    {
+      "id": "book-design",
+      "title": "Book Design",
+      "description": "Editorial layouts, covers and book design projects.",
+      "folder": "book-design",
+      "items": [
+        {
+          "id": "book-01",
+          "title": "Book Design 01",
+          "tag": "Book Design",
+          "image": "786035675_17897752134664638_8614203291392562794_n.avif"
+        },
+        {
+          "id": "book-02",
+          "title": "Book Design 02",
+          "tag": "Book Design",
+          "image": "813661836_122176113410975016_1166320987108527301_n.avif"
+        },
+        {
+          "id": "book-03",
+          "title": "Book Design 03",
+          "tag": "Book Design",
+          "image": "Artboard 1.avif"
+        },
+        {
+          "id": "book-04",
+          "title": "Book Design 04",
+          "tag": "Book Design",
+          "image": "Artboard 2.avif"
+        },
+        {
+          "id": "book-05",
+          "title": "Book Design 05",
+          "tag": "Book Design",
+          "image": "Artboard 3.avif"
+        }
+      ]
+    },
+    {
+      "id": "branding",
+      "title": "Branding",
+      "description": "Identity systems, visual language and brand applications.",
+      "folder": "branding",
+      "items": [
+        {
+          "id": "branding-01",
+          "title": "Branding 01",
+          "tag": "Branding",
+          "image": "747625863_17887876542664638_2243618916325384808_n.webp"
+        },
+        {
+          "id": "branding-02",
+          "title": "Branding 02",
+          "tag": "Branding",
+          "image": "782638033_17896696860664638_8006698304021608894_n.webp"
+        },
+        {
+          "id": "branding-03",
+          "title": "Branding 03",
+          "tag": "Branding",
+          "image": "790307842_17898958731664638_7547516283409600440_n.webp"
+        },
+        {
+          "id": "branding-04",
+          "title": "Branding 04",
+          "tag": "Branding",
+          "image": "Artboard 5.avif"
+        },
+        {
+          "id": "branding-05",
+          "title": "Branding 05",
+          "tag": "Branding",
+          "image": "Artboard 8.avif"
+        },
+        {
+          "id": "branding-06",
+          "title": "Branding 06",
+          "tag": "Branding",
+          "image": "to.webp"
+        },
+        {
+          "id": "branding-07",
+          "title": "Branding 07",
+          "tag": "Branding",
+          "image": "WhatsApp Image 2026-08-21 at 8.51.09 PM.avif"
+        }
+      ]
+    }
+  ]
+}
