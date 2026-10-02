@@ -389,7 +389,7 @@ const WorkShowcase = () => {
           {/* Section badge */}
           <div className="flex items-center gap-4 mb-8">
             <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[var(--lime-primary)] text-white font-bold text-lg shadow-md">
-              03
+              04
             </span>
 
             <span className="inline-flex items-center gap-2 px-4 py-2 border bg-white border-gray-200 text-gray-600 text-sm font-semibold uppercase tracking-wider">

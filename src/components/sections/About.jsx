@@ -212,7 +212,7 @@ const ToolsExpertise = () => {
   const otherTools = skillsData.tools.filter((t) => !designTools.includes(t) && !videoTools.includes(t));
 
   return (
-    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] inset-4 z-3">
+    <section ref={ref} className="relative py-10 px-6 sm:px-10 lg:px-16 overflow-hidden bg-[#f8fafc]" >
       <div className="max-w-7xl mx-auto">
         <SectionBadge number="02" label="Expertise" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
@@ -236,8 +236,6 @@ const ToolsExpertise = () => {
               ))}
             </div>
           </motion.div>
-
-          
         </div>
 
         <div className="mb-6">
@@ -268,7 +266,7 @@ const CurrentlyWorking = () => {
     experienceData[0];
 
   return (
-    <section ref={ref} className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section ref={ref} className="py-14 px-4 sm:px-6 lg:px-8 bg-[#f3f5f7] inset-4 z-3" >
       <div className="max-w-7xl mx-auto">
         <SectionBadge number="03" label="Experience" light />
 
