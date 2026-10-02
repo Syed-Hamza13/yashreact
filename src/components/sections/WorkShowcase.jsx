@@ -377,7 +377,7 @@ const WorkShowcase = () => {
     <>
       <section
         id="portfolio"
-        className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc] overflow-hidden"
+        className="section-surface relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden"
       >
         {/* Decorative glow */}
         <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--lime-primary)]/15 blur-3xl" />

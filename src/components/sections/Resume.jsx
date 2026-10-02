@@ -55,13 +55,13 @@ const Resume = () => {
 
   return (
     <div
-      className="relative z-10 min-h-screen w-full bg-[#f8fafc] flex items-center justify-center px-4 sm:px-8 lg:px-16 py-20"
+      className="section-surface section-surface--gradient relative z-10 w-full flex items-center justify-center px-4 sm:px-8 lg:px-16 py-12"
       id="resume"
     >
       <div className="w-full max-w-4xl">
 
         {/* ── HEADING + DESCRIPTION ── */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           {/* Icon + Heading inline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

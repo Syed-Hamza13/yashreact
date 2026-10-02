@@ -35,7 +35,67 @@
           "title": "Design 05",
           "tag": "Graphic Design",
           "image": "780520956_122139673407138632_2845715456464545886_n.avif"
-        }
+        },
+        {
+          "id": "branding-01",
+          "title": "Graphic Design 01",
+          "tag": "Graphic Design",
+          "image": "747625863_17887876542664638_2243618916325384808_n.webp"
+        },
+        {
+          "id": "branding-02",
+          "title": "Graphic Design 02",
+          "tag": "Graphic Design",
+          "image": "782638033_17896696860664638_8006698304021608894_n.webp"
+        },
+        {
+          "id": "branding-03",
+          "title": "Graphic Design 03",
+          "tag": "Graphic Design",
+          "image": "790307842_17898958731664638_7547516283409600440_n.webp"
+        },
+        {
+          "id": "branding-04",
+          "title": "Graphic Design 04",
+          "tag": "Graphic Design",
+          "image": "Artboard 5.avif"
+        },
+        {
+          "id": "branding-05",
+          "title": "Graphic Design 05",
+          "tag": "Branding",
+          "image": "Artboard 8.avif"
+        },
+        {
+          "id": "branding-06",
+          "title": "Graphic Design 06",
+          "tag": "Graphic Design",
+          "image": "to.webp"
+        },
+        {
+          "id": "branding-07",
+          "title": "Graphic Design 07",
+          "tag": "Graphic Design",
+          "image": "WhatsApp Image 2026-08-21 at 8.51.09 PM.avif"
+        },
+        {
+          "id": "branding-08",
+          "title": "Graphic Design 08",
+          "tag": "Graphic Design",
+          "image": "inear watch .jpg.avif"
+        },
+        {
+          "id": "branding-09",
+          "title": "Graphic Design 09",
+          "tag": "Graphic Design",
+          "image": "split.jpg.avif"
+        },
+        {
+          "id": "branding-10",
+          "title": "Graphic Design 10",
+          "tag": "Graphic Design",
+          "image": "split bt .jpg.avif"
+        }       
       ]
     },
     {
@@ -86,43 +146,13 @@
           "id": "branding-01",
           "title": "Branding 01",
           "tag": "Branding",
-          "image": "747625863_17887876542664638_2243618916325384808_n.webp"
+          "image": "1.jpg.avif"
         },
         {
           "id": "branding-02",
           "title": "Branding 02",
           "tag": "Branding",
-          "image": "782638033_17896696860664638_8006698304021608894_n.webp"
-        },
-        {
-          "id": "branding-03",
-          "title": "Branding 03",
-          "tag": "Branding",
-          "image": "790307842_17898958731664638_7547516283409600440_n.webp"
-        },
-        {
-          "id": "branding-04",
-          "title": "Branding 04",
-          "tag": "Branding",
-          "image": "Artboard 5.avif"
-        },
-        {
-          "id": "branding-05",
-          "title": "Branding 05",
-          "tag": "Branding",
-          "image": "Artboard 8.avif"
-        },
-        {
-          "id": "branding-06",
-          "title": "Branding 06",
-          "tag": "Branding",
-          "image": "to.webp"
-        },
-        {
-          "id": "branding-07",
-          "title": "Branding 07",
-          "tag": "Branding",
-          "image": "WhatsApp Image 2026-08-21 at 8.51.09 PM.avif"
+          "image": "2.jpg.avif"
         }
       ]
     }
