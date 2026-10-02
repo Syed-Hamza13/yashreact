@@ -377,7 +377,7 @@ const WorkShowcase = () => {
     <>
       <section
         id="portfolio"
-        className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc] overflow-hidden"
+        className="section-surface relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden"
       >
         {/* Decorative glow */}
         <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--lime-primary)]/15 blur-3xl" />
@@ -389,7 +389,7 @@ const WorkShowcase = () => {
           {/* Section badge */}
           <div className="flex items-center gap-4 mb-8">
             <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[var(--lime-primary)] text-white font-bold text-lg shadow-md">
-              03
+              04
             </span>
 
             <span className="inline-flex items-center gap-2 px-4 py-2 border bg-white border-gray-200 text-gray-600 text-sm font-semibold uppercase tracking-wider">

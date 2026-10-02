@@ -22,7 +22,7 @@ import {
 // ── Section 9: Experience Timeline ──
 const ExperienceTimeline = () => {
   return (
-    <section className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc] overflow-hidden">
+    <section className="section-surface section-surface--gradient relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden">
       <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--lime-primary)]/15 blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
@@ -145,7 +145,7 @@ const ExperienceTimeline = () => {
 // ── Section 10: Education ──
 const EducationSection = () => {
   return (
-    <section className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc]">
+    <section className="section-surface relative py-12 px-6 sm:px-10 lg:px-16">
       <div className="relative max-w-7xl mx-auto">
         {/* Badge */}
         <div className="flex items-center gap-4 mb-8">
@@ -225,7 +225,7 @@ const EducationSection = () => {
 // ── Section 11: Skills ──
 const SkillsSection = () => {
   return (
-    <section className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc]">
+    <section className="section-surface section-surface--gradient relative py-12 px-6 sm:px-10 lg:px-16">
       <div className="relative max-w-7xl mx-auto">
         {/* Badge */}
         <div className="flex items-center gap-4 mb-8">
@@ -358,7 +358,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc] overflow-hidden">
+    <section id="contact" className="section-surface relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden">
       <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[var(--lime-primary)]/15 blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">

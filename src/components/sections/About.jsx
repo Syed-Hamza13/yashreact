@@ -128,7 +128,7 @@ const WhoIAm = () => {
   return (
     <section
       ref={ref}
-      className="relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden bg-[#f8fafc]"
+      className="section-surface relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden"
     >
       {/* Decorative blobs */}
       <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[var(--lime-primary)]/15 blur-3xl" />
@@ -212,7 +212,7 @@ const ToolsExpertise = () => {
   const otherTools = skillsData.tools.filter((t) => !designTools.includes(t) && !videoTools.includes(t));
 
   return (
-    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] inset-4 z-3">
+    <section ref={ref} className="section-surface section-surface--gradient relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <SectionBadge number="02" label="Expertise" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
@@ -236,8 +236,6 @@ const ToolsExpertise = () => {
               ))}
             </div>
           </motion.div>
-
-          
         </div>
 
         <div className="mb-6">
@@ -268,7 +266,7 @@ const CurrentlyWorking = () => {
     experienceData[0];
 
   return (
-    <section ref={ref} className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section ref={ref} className="section-surface relative py-12 px-6 sm:px-10 lg:px-16">
       <div className="max-w-7xl mx-auto">
         <SectionBadge number="03" label="Experience" light />
 
@@ -469,7 +467,7 @@ const CurrentlyWorking = () => {
 // ── MAIN ABOUT ──
 const About = () => {
   return (
-      <div id="about" className="relative z-10 bg-[#f8fafc]">
+      <div id="about" className="section-surface relative z-10">
       <WhoIAm />
       <ToolsExpertise />
       <CurrentlyWorking />

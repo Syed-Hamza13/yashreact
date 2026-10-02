@@ -29,6 +29,11 @@
   --light-border: #e5e5e5;
   --light-text: #0a0a0a;
   --light-text-muted: #666666;
+
+  /* Shared opaque surfaces for portfolio sections */
+  --section-surface: #f8fafc;
+  --section-surface-shade: #f1f5f9;
+  --section-surface-border: rgba(226, 232, 240, 0.72);
 }
 
 * {
@@ -71,6 +76,22 @@ body {
 }
 
 /* ── REFERENCE IMAGE LAYOUT UTILITIES ── */
+
+.section-surface {
+  background-color: var(--section-surface);
+}
+
+.section-surface--gradient {
+  background-color: var(--section-surface);
+  background-image: linear-gradient(
+    180deg,
+    var(--section-surface-shade) 0%,
+    var(--section-surface) 18%,
+    var(--section-surface) 82%,
+    var(--section-surface-shade) 100%
+  );
+  border-block: 1px solid var(--section-surface-border);
+}
 
 /* Section Pill Badge */
 .section-pill {

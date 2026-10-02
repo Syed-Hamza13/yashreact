@@ -8,12 +8,95 @@ import {
   FaCheck,
   FaFileAlt,
 } from 'react-icons/fa';
-import Thumbnail from '../../assets/resumethumbnail.png';
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import ResumePdf from '../../assets/resume/Yash_Chourey_Resume_Updated.pdf';
+
+const ResumePreview = ({ pdfUrl }) => {
+  const canvasRef = React.useRef(null);
+  const [failed, setFailed] = React.useState(false);
+  const [ready, setReady] = React.useState(false);
+
+  React.useEffect(() => {
+    let cancelled = false;
+    let renderTask;
+    let loadingTask;
+    let observer;
+
+    const renderPage = async () => {
+      try {
+        const { getDocument, GlobalWorkerOptions } = await import('pdfjs-dist');
+        if (cancelled) return;
+
+        GlobalWorkerOptions.workerSrc = pdfWorker;
+        loadingTask = getDocument({ url: pdfUrl });
+        const pdf = await loadingTask.promise;
+        const page = await pdf.getPage(1);
+        const viewport = page.getViewport({ scale: 2 });
+        const canvas = canvasRef.current;
+
+        if (!canvas || cancelled) return;
+
+        const context = canvas.getContext('2d');
+        if (!context) throw new Error('Canvas context unavailable');
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        renderTask = page.render({ canvas, canvasContext: context, viewport });
+        await renderTask.promise;
+
+        if (!cancelled) setReady(true);
+      } catch {
+        if (!cancelled) setFailed(true);
+      }
+    };
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    if (!('IntersectionObserver' in window)) {
+      renderPage();
+    } else {
+      observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          renderPage();
+        }
+      }, { rootMargin: '200px' });
+
+      observer.observe(canvas);
+    }
+
+    return () => {
+      cancelled = true;
+      observer?.disconnect();
+      renderTask?.cancel();
+      loadingTask?.destroy();
+    };
+  }, [pdfUrl]);
+
+  if (failed) {
+    return (
+      <div className="flex h-full items-center justify-center bg-white text-sm text-gray-500">
+        Resume preview unavailable
+      </div>
+    );
+  }
+
+  return (
+    <canvas
+      ref={canvasRef}
+      role="img"
+      aria-label="First page of Yash Chourey's resume"
+      className={`h-full w-full object-cover object-top transition-opacity duration-300 ${ready ? 'opacity-100' : 'opacity-0'}`}
+    />
+  );
+};
+
 const Resume = () => {
-  const pdfUrl = '/Yash_Chourey_Resume_A4.pdf';
-  const pdfName = 'Yash_Chourey_Resume_A4.pdf';
-  const pdfSize = '71 KB';
-  const pdfPages = '1 page';
+  const pdfUrl = ResumePdf;
+  const pdfName = 'Yash_Chourey_Resume_Updated.pdf';
+  const pdfSize = '59 KB';
+  const pdfPages = '2 pages';
 
   const [downloaded, setDownloaded] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
@@ -34,34 +117,39 @@ const Resume = () => {
   };
 
   const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'Yash Chourey — Resume',
-          text: 'Check out my resume',
-          url: window.location.origin + pdfUrl,
-        });
-      } catch (err) {}
-    } else {
-      try {
-        await navigator.clipboard.writeText(window.location.origin + pdfUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      } catch (err) {
+    const shareUrl = new URL(pdfUrl, window.location.origin).href;
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+    } catch {
+      const textArea = document.createElement('textarea');
+      textArea.value = shareUrl;
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      const didCopy = document.execCommand('copy');
+      document.body.removeChild(textArea);
+
+      if (!didCopy) {
         alert('Could not copy link');
+        return;
       }
     }
+
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div
-      className="relative z-10 min-h-screen w-full bg-[#f8fafc] flex items-center justify-center px-4 sm:px-8 lg:px-16 py-20"
+      className="section-surface section-surface--gradient relative z-10 w-full flex items-center justify-center px-4 sm:px-8 lg:px-16 py-12"
       id="resume"
     >
       <div className="w-full max-w-4xl">
 
         {/* ── HEADING + DESCRIPTION ── */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           {/* Icon + Heading inline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +192,7 @@ const Resume = () => {
           {/* ── THUMBNAIL PREVIEW ── */}
           <div className="relative bg-gray-100 border-b border-gray-200 overflow-hidden">
             <div className="relative w-full aspect-[2/1] overflow-hidden">
-              <img src={Thumbnail} alt="Resume Thumbnail" className="w-full h-full object-cover" />
+              <ResumePreview pdfUrl={pdfUrl} />
               <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white/70 to-transparent" />
             </div>
 

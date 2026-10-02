@@ -48,13 +48,13 @@ const UiUxShowcase = () => {
   return (
     <section
       ref={ref}
-      className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc] overflow-hidden"
+      className="section-surface section-surface--gradient relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden"
     >
       <div className="relative max-w-7xl mx-auto">
         {/* Badge */}
         <div className="flex items-center gap-4 mb-8">
           <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[var(--lime-primary)] text-white font-bold text-lg shadow-md">
-            04
+            05
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2 border bg-white border-gray-200 text-gray-600 text-sm font-semibold uppercase tracking-wider">
             <span className="w-2 h-2 rounded-full bg-[var(--lime-primary)]"></span>
@@ -166,7 +166,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="relative py-16 px-6 sm:px-10 lg:px-16 bg-[#f8fafc] overflow-hidden">
+    <section className="section-surface relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden">
       <div className="relative max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {stats.map((stat, i) => {
