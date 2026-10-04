@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   FaBriefcase,
   FaGraduationCap,
@@ -11,13 +11,13 @@ import {
   FaMapMarkedAlt,
   FaPaperPlane,
   FaCheck,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 import {
   experienceData,
   educationData,
   skillsData,
   contactData,
-} from '../../data/portfolioData';
+} from "../../data/portfolioData";
 
 // ── Section 9: Experience Timeline ──
 const ExperienceTimeline = () => {
@@ -71,8 +71,8 @@ const ExperienceTimeline = () => {
                 <div
                   className={`absolute left-3 md:left-5 top-5 w-6 h-6 rounded-full border-4 border-[#f8fafc] ${
                     job.isCurrent
-                      ? 'bg-[var(--lime-primary)] shadow-[0_0_0_4px_rgba(163,230,53,0.2)]'
-                      : 'bg-gray-300'
+                      ? "bg-[var(--lime-primary)] shadow-[0_0_0_4px_rgba(163,230,53,0.2)]"
+                      : "bg-gray-300"
                   }`}
                 />
 
@@ -88,8 +88,8 @@ const ExperienceTimeline = () => {
                             alt={job.company}
                             className="w-full h-full object-cover p-1"
                             onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
+                              e.target.style.display = "none";
+                              e.target.nextSibling.style.display = "flex";
                             }}
                           />
                         ) : null}
@@ -192,8 +192,8 @@ const EducationSection = () => {
                     alt={edu.institution}
                     className="w-full h-full object-cover p-1.5"
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
+                      e.target.style.display = "none";
+                      e.target.nextSibling.style.display = "flex";
                     }}
                   />
                   <span className="hidden w-full h-full items-center justify-center text-black font-bold text-xl">
@@ -249,7 +249,8 @@ const SkillsSection = () => {
             Skills & Strengths
           </h2>
           <p className="text-gray-600 text-sm leading-relaxed">
-            Design capabilities paired with the soft skills to deliver great work.
+            Design capabilities paired with the soft skills to deliver great
+            work.
           </p>
         </div>
 
@@ -327,28 +328,35 @@ const SkillsSection = () => {
 
 // ── Section 13: Contact ──
 const ContactSection = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState({ loading: false, success: false, error: false });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState({
+    loading: false,
+    success: false,
+    error: false,
+  });
 
   // Web3Forms Access Key yahan dalein
-  const WEB3FORMS_ACCESS_KEY = '3a7ee953-cb3a-48a4-97e6-de3723e980c8';
+  const WEB3FORMS_ACCESS_KEY = "3a7ee953-cb3a-48a4-97e6-de3723e980c8";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ loading: true, success: false, error: false });
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           name: form.name,
           email: form.email,
           message: form.message,
+          // Custom Subject aur Sender Name
+          subject: `New Portfolio Message from ${form.name}`,
+          from_name: "Portfolio Contact Form",
         }),
       });
 
@@ -356,25 +364,46 @@ const ContactSection = () => {
 
       if (result.success) {
         setStatus({ loading: false, success: true, error: false });
-        setForm({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus((prev) => ({ ...prev, success: false })), 4000);
+        setForm({ name: "", email: "", message: "" });
+        setTimeout(
+          () => setStatus((prev) => ({ ...prev, success: false })),
+          4000,
+        );
       } else {
         setStatus({ loading: false, success: false, error: true });
       }
     } catch (err) {
-      console.error('Form submission error:', err);
+      console.error("Form submission error:", err);
       setStatus({ loading: false, success: false, error: true });
     }
   };
 
   const contactInfo = [
-    { icon: FaEnvelope, label: 'Email', value: contactData.email, href: `mailto:${contactData.email}` },
-    { icon: FaPhone, label: 'Phone', value: contactData.phone, href: `tel:${contactData.phone.replace(/\s/g, '')}` },
-    { icon: FaMapMarkedAlt, label: 'Location', value: contactData.location, href: null },
+    {
+      icon: FaEnvelope,
+      label: "Email",
+      value: contactData.email,
+      href: `mailto:${contactData.email}`,
+    },
+    {
+      icon: FaPhone,
+      label: "Phone",
+      value: contactData.phone,
+      href: `tel:${contactData.phone.replace(/\s/g, "")}`,
+    },
+    {
+      icon: FaMapMarkedAlt,
+      label: "Location",
+      value: contactData.location,
+      href: null,
+    },
   ];
 
   return (
-    <section id="contact" className="section-surface relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden">
+    <section
+      id="contact"
+      className="section-surface relative py-12 px-6 sm:px-10 lg:px-16 overflow-hidden"
+    >
       <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[var(--lime-primary)]/15 blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
@@ -394,7 +423,9 @@ const ContactSection = () => {
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               Let's build <br />
-              <span className="text-[var(--lime-dark)]">something together.</span>
+              <span className="text-[var(--lime-dark)]">
+                something together.
+              </span>
             </h2>
             <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
               {contactData.message}
@@ -404,7 +435,7 @@ const ContactSection = () => {
             <div className="space-y-3">
               {contactInfo.map((info) => {
                 const Icon = info.icon;
-                const Wrapper = info.href ? 'a' : 'div';
+                const Wrapper = info.href ? "a" : "div";
                 return (
                   <Wrapper
                     key={info.label}
@@ -414,7 +445,7 @@ const ContactSection = () => {
                     <div className="w-11 h-11 rounded-xl bg-[var(--lime-light)]/70 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--lime-primary)] transition-colors duration-300">
                       <Icon
                         className={`w-5 h-5 text-black group-hover:text-white transition-all duration-300 ${
-                          info.label === 'Phone' ? 'group-hover:rotate-90' : ''
+                          info.label === "Phone" ? "group-hover:rotate-90" : ""
                         }`}
                       />
                     </div>
@@ -482,7 +513,9 @@ const ContactSection = () => {
                   required
                   rows={4}
                   value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, message: e.target.value })
+                  }
                   placeholder="Tell me about your project..."
                   className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:bg-white focus:border-[var(--lime-primary)] outline-none text-sm text-gray-900 transition-colors duration-300 resize-none"
                 />
@@ -500,7 +533,7 @@ const ContactSection = () => {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-black hover:bg-[var(--lime-primary)] text-white font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 disabled:opacity-50"
               >
                 {status.loading ? (
-                  'Sending...'
+                  "Sending..."
                 ) : status.success ? (
                   <>
                     <FaCheck className="w-4 h-4" />
