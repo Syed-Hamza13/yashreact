@@ -328,28 +328,44 @@ const SkillsSection = () => {
 // ── Section 13: Contact ──
 const ContactSection = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState({ loading: false, success: false, error: false });
 
-  const handleSubmit = (e) => {
-  e.preventDefault();
+  // Web3Forms Access Key yahan dalein
+  const WEB3FORMS_ACCESS_KEY = '3a7ee953-cb3a-48a4-97e6-de3723e980c8';
 
-  const whatsappNumber = '919575371109';
-  const message =
-    `*New Contact Form Message*%0A%0A` +
-    `*Name:* ${form.name}%0A` +
-    `*Email:* ${form.email}%0A%0A` +
-    `*Message:*%0A${form.message}`;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ loading: true, success: false, error: false });
 
-  window.open(
-    `https://wa.me/${whatsappNumber}?text=${message}`,
-    '_blank',
-    'noopener,noreferrer'
-  );
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
 
-  setSent(true);
-  setTimeout(() => setSent(false), 3000);
-  setForm({ name: '', email: '', message: '' });
-};
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus({ loading: false, success: true, error: false });
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus((prev) => ({ ...prev, success: false })), 4000);
+      } else {
+        setStatus({ loading: false, success: false, error: true });
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setStatus({ loading: false, success: false, error: true });
+    }
+  };
 
   const contactInfo = [
     { icon: FaEnvelope, label: 'Email', value: contactData.email, href: `mailto:${contactData.email}` },
@@ -387,32 +403,32 @@ const ContactSection = () => {
             {/* Info cards */}
             <div className="space-y-3">
               {contactInfo.map((info) => {
-                    const Icon = info.icon;
-                    const Wrapper = info.href ? 'a' : 'div';
-                    return (
-                        <Wrapper
-                        key={info.label}
-                        {...(info.href ? { href: info.href } : {})}
-                        className="group flex items-center gap-4 p-4 bg-white rounded-2xl border-2 border-gray-200 hover:border-[var(--lime-primary)] hover:shadow-md transition-all duration-300 cursor-pointer"
-                        >
-                        <div className="w-11 h-11 rounded-xl bg-[var(--lime-light)]/70 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--lime-primary)] transition-colors duration-300">
-                            <Icon
-                            className={`w-5 h-5 text-black group-hover:text-white transition-all duration-300 ${
-                                info.label === 'Phone' ? 'group-hover: rotate-90' : ''
-                            }`}
-                            />
-                        </div>
-                        <div className="min-w-0">
-                            <div className="text-[9px] font-bold uppercase tracking-widest text-gray-500">
-                            {info.label}
-                            </div>
-                            <div className="text-sm font-semibold text-gray-900 truncate">
-                            {info.value}
-                            </div>
-                        </div>
-                        </Wrapper>
-                    );
-                    })}
+                const Icon = info.icon;
+                const Wrapper = info.href ? 'a' : 'div';
+                return (
+                  <Wrapper
+                    key={info.label}
+                    {...(info.href ? { href: info.href } : {})}
+                    className="group flex items-center gap-4 p-4 bg-white rounded-2xl border-2 border-gray-200 hover:border-[var(--lime-primary)] hover:shadow-md transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-[var(--lime-light)]/70 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--lime-primary)] transition-colors duration-300">
+                      <Icon
+                        className={`w-5 h-5 text-black group-hover:text-white transition-all duration-300 ${
+                          info.label === 'Phone' ? 'group-hover:rotate-90' : ''
+                        }`}
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[9px] font-bold uppercase tracking-widest text-gray-500">
+                        {info.label}
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900 truncate">
+                        {info.value}
+                      </div>
+                    </div>
+                  </Wrapper>
+                );
+              })}
             </div>
           </div>
 
@@ -472,11 +488,20 @@ const ContactSection = () => {
                 />
               </div>
 
+              {status.error && (
+                <p className="text-xs text-red-500 font-semibold">
+                  Something went wrong. Please try again.
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-black hover:bg-[var(--lime-primary)] text-white font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+                disabled={status.loading}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-black hover:bg-[var(--lime-primary)] text-white font-bold rounded-xl hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 disabled:opacity-50"
               >
-                {sent ? (
+                {status.loading ? (
+                  'Sending...'
+                ) : status.success ? (
                   <>
                     <FaCheck className="w-4 h-4" />
                     Message Sent!
