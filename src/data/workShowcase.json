@@ -128,7 +128,48 @@
       "description": "Editorial layouts, covers and book design projects.",
       "folder": "book-design",
       "items": [
-        
+        {
+          "id": "book-01",
+          "title": "Book Design",
+          "tag": "Book Design",
+          "image": "Artboard 3.avif"
+        },
+        {
+          "id": "book-02",
+          "title": "Book Design",
+          "tag": "Book Design",
+          "image": "Artboard 4.avif"
+        },
+        {
+          "id": "book-03",
+          "title": "Book Design",
+          "tag": "Book Design",
+          "image": "Artboard 5.avif"
+        },
+        {
+          "id": "book-04",
+          "title": "Book Design",
+          "tag": "Book Design",
+          "image": "Artboard 6.avif"
+        },
+        {
+          "id": "book-05",
+          "title": "Book Design",
+          "tag": "Book Design",
+          "image": "Artboard 7.avif"
+        },
+        {
+          "id": "book-06",
+          "title": "Book Design",
+          "tag": "Book Design",
+          "image": "Artboard 8.avif"
+        },
+        {
+          "id": "book-07",
+          "title": "Book Design",
+          "tag": "Book Design",
+          "image": "pot book.avif"
+        }
       ]
     },
     {
