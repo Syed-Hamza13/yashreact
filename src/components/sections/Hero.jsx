@@ -248,9 +248,9 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight drop-shadow-2xl"
           >
-            Your work,
+            Crafting Impactful Experiences.
             <br />
-            <span className="text-accent">front and centre.</span>
+            <span className="text-accent">Designing With Purpose.</span>
           </motion.h1>
 
           <motion.p
