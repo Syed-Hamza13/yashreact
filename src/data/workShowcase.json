@@ -85,17 +85,41 @@
           "image": "inear watch .jpg.avif"
         },
         {
-          "id": "branding-09",
-          "title": "Graphic Design 09",
-          "tag": "Graphic Design",
-          "image": "split.jpg.avif"
-        },
-        {
           "id": "branding-10",
           "title": "Graphic Design 10",
           "tag": "Graphic Design",
           "image": "split bt .jpg.avif"
-        }       
+        },  
+        {
+          "id": "book-01",
+          "title": "Graphics Design 01",
+          "tag": "Graphics Design",
+          "image": "786035675_17897752134664638_8614203291392562794_n.avif"
+        },
+        {
+          "id": "book-02",
+          "title": "Graphics Design 02",
+          "tag": "Graphics Design",
+          "image": "813661836_122176113410975016_1166320987108527301_n.avif"
+        },
+        {
+          "id": "book-03",
+          "title": "Graphics Design 03",
+          "tag": "Graphics Design",
+          "image": "Artboard 1.avif"
+        },
+        {
+          "id": "book-04",
+          "title": "Graphics Design 04",
+          "tag": "Graphics Design",
+          "image": "Artboard 2.avif"
+        },
+        {
+          "id": "book-05",
+          "title": "Graphics Design 05",
+          "tag": "Graphics Design",
+          "image": "Artboard 3.avif"
+        }     
       ]
     },
     {
@@ -104,36 +128,7 @@
       "description": "Editorial layouts, covers and book design projects.",
       "folder": "book-design",
       "items": [
-        {
-          "id": "book-01",
-          "title": "Book Design 01",
-          "tag": "Book Design",
-          "image": "786035675_17897752134664638_8614203291392562794_n.avif"
-        },
-        {
-          "id": "book-02",
-          "title": "Book Design 02",
-          "tag": "Book Design",
-          "image": "813661836_122176113410975016_1166320987108527301_n.avif"
-        },
-        {
-          "id": "book-03",
-          "title": "Book Design 03",
-          "tag": "Book Design",
-          "image": "Artboard 1.avif"
-        },
-        {
-          "id": "book-04",
-          "title": "Book Design 04",
-          "tag": "Book Design",
-          "image": "Artboard 2.avif"
-        },
-        {
-          "id": "book-05",
-          "title": "Book Design 05",
-          "tag": "Book Design",
-          "image": "Artboard 3.avif"
-        }
+        
       ]
     },
     {
@@ -153,6 +148,12 @@
           "title": "Branding 02",
           "tag": "Branding",
           "image": "2.jpg.avif"
+        },
+        {
+          "id": "branding-09",
+          "title": "Branding 03",
+          "tag": "Branding",
+          "image": "split.jpg.avif"
         }
       ]
     }
