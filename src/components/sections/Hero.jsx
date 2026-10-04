@@ -226,13 +226,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center max-w-4xl mx-auto"
+          className="relative text-center max-w-4xl mx-auto"
         >
+          {/* Subtle readability glow behind hero text */}
+          <div
+            className="absolute -inset-x-20 -inset-y-10 -z-10 rounded-[40%] bg-black/20 blur-3xl"
+            aria-hidden="true"
+          />
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-gray-400 text-sm sm:text-base mb-6 font-medium tracking-wide uppercase"
+            className="text-white/75 text-sm sm:text-base mb-6 font-medium tracking-[0.12em] uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
           >
             Graphic & UI/UX Designer
           </motion.p>
@@ -252,7 +257,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="text-gray-100 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-white/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-[0_3px_14px_rgba(0,0,0,0.9)]"
           >
             A hero that leads with the images instead of describing them.
             Creating visual experiences that captivate and inspire.
